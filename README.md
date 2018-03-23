@@ -23,7 +23,7 @@ Linux:
 1) Clone all required files.
 2) Compile the program with $./make. You may need to change file permissions with: $ chmod +x make
 3) The program reads in Z-transformed vectorized connectivity matrices in CSV format, with 0's along the diagonal. The program will reshape these vectorized matrices into VxV symmetric PSD matrices. The X matrix is a standard design matrix. You will need to code a column of 1's for the intercept. The number of rows of both of these inputs should be the same.
-4) Run the program with ./px_blgrm [network_matrices] [design matrix] [R, reduced dimsnion size] [V, original connectivity matrix size] [number of iterations] [number of burnin] [metropolis iterations] [metropolis burnin]
+4) Run the program with ./px_blgrm [network_matrices] [design matrix] [R, reduced dimension size] [V, original connectivity matrix size] [number of iterations] [number of burnin] [metropolis iterations] [metropolis burnin]
 
 Data is output in the following formats:
 B: The B matrices stacked by column.
@@ -34,7 +34,7 @@ Lambda: For each iteration, we have n vectorized Lambda matrices. so we have n *
 
 
 a sample run will look like this:
-$ ./px_blgrm network_matrices.csv design_matric.csv 17 250 5500 500 10 0
+$ ./px_blgrm network_matrices.csv design_matrix.csv 17 250 5500 500 10 0
 
 
 The program works best with very few metropolis iterations and 0 or few burnin iterations for the metropolis. High iterations for the metropolis will give you erroneous results. You may have to print out the 'aa_B' matrix in px_blgrm.cpp to ensure model is converging properly.
